@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+
+import Header from "./components/header";
+import Main from "./components/main";
+import Footer from "./components/footer";
+import Update from "./components/update";
 import './App.css';
+import {Provider} from "react-redux";
+import store from "./redux/store"
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //wrap all in provider from react-redux so that it can be used in any component
+    <Provider store={store}>
+        <div className="App">
+            <div className="f-container fixed-hf">
+                <Header/>
+                <Main/>
+                <Footer/>    
+            </div>
+            <div className="Side-Section">
+                <Update/>
+
+            </div>
+        </div>
+    </Provider>
   );
 }
 
